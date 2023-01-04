@@ -3,23 +3,67 @@
     margin-left: 20px;
     color: #fff;   
 }
+.first-part {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .row-posters {
     display: flex;
     padding: 20px;
     overflow-x: scroll;
     overflow-y:hidden;
+    /* flex-wrap: wrap; */
 }
 .row-posters::-webkit-scrollbar{
     display: none;
 }
+.movie-map {
+    height:fit-content;
+    text-align: center;
+    /* background-color: yellow; */
+}
+.movie-map {
+    height: 250px;
+    /* background-color: #fff; */
+    border: 2px solid black;
+}
 .poster {
-    max-height: 250px;
+    /* width: 100%; */
+    /* overflow: hidden; */
+    cursor: pointer;
+    height: 250px;
     margin-right: 10px;
     background: red;
-
 }
 .small-poster {
-    max-height: 150px;
+    /* width: 100%; */
+    cursor: pointer;
+    height: 150px;
     margin-right: 10px;
     background: rgb(144, 119, 119)
+}
+.poster:hover{
+    transition:transform 120ms ease-in-out;
+    transform: scale(1.06);
+}
+
+span {
+    padding: 2px 5px;
+    border-radius: 8px;
+    z-index: 1;
+    /* margin-bottom: 10px; */
+    position: relative;
+    left: 10px;
+    /* top: 10px; */
+}
+span.green {
+    background-color: rgb(34, 208, 34);
+}
+span.orenge {
+    background-color: rgb(231, 155, 14);
+}
+span.red {
+    background-color: rgb(226, 32, 32);
 }

@@ -1,0 +1,17 @@
+.tags-container {
+    /* background-color: #fff; */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.tags-container input {
+    width:50px;
+    height: 30px;
+    padding: 5px 5px;
+    /* margin: 5px 20px; */
+}
+.tags-container input:hover{
+    background-color: rgb(22, 15, 15);
+    color: aliceblue;
+}

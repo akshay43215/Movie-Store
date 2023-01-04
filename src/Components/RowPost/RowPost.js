@@ -4,11 +4,11 @@ import YouTube from 'react-youtube';
 import Axios from '../../Axios/Axios'
 import './RowPost.css'
 
-function RowPost({title,isSmall,url}) {
+function RowPost({title,isSmall,url,noWrap,inputVal}) {
 
 const [movies, setMovies] = useState([])
 const [urlId, setUrlId] = useState(null)
-
+console.log(inputVal);
 useEffect(() => {
 
   Axios.get(url).then((response)=>{
@@ -26,6 +26,16 @@ useEffect(() => {
     playerVars: {
       autoplay: 1,
     },
+  }
+  const getColor = (vote)=>{
+     
+    if(vote>=7)
+     return 'green'
+    else if(vote>=5)
+      return 'orenge'
+    else
+      return 'red'
+    
   }
 
   // const playMovie =(id)=> {
@@ -57,9 +67,19 @@ useEffect(() => {
       <div className="row-container">
           <h2>{title}</h2>
           <div className="row-posters">
-            {
-              movies.map((itm)=>
-                  <img key={itm.id} className={isSmall?'small-poster':'poster'} onClick={()=>handleTrailer(itm.id)} src={`${IMAGEURL+itm.backdrop_path}`} alt="row-post" />              
+            {movies.map((itm)=>
+                  <div className='movie-map' key={itm.id}>
+                    <div className="first-part">
+                      <span className={getColor(itm.vote_average)}>{itm.vote_average}</span>
+                      <h3>{itm.name}</h3>
+                      <button  onClick={()=>handleTrailer(itm.id)}>Watch</button>
+                      </div>
+                      <img key={itm.id} className={isSmall?'small-poster':'poster'}
+                        src={`${IMAGEURL+itm.backdrop_path}`} 
+                        style={noWrap?{flexWrap:noWrap}:{}} alt="row-post" />   
+                    <div className="second-part">
+                    </div>
+                  </div>
                   // onClick={()=>playMovie(itm.id)}
               )
             }
