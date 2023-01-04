@@ -48,6 +48,10 @@
     transition:transform 120ms ease-in-out;
     transform: scale(1.06);
 }
+.small-poster:hover{
+    transition:transform 120ms ease-in-out;
+    transform: scale(1.06);
+}
 
 span {
     padding: 2px 5px;

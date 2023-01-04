@@ -5,13 +5,13 @@
     align-items: center;
     justify-content: space-evenly;
 }
-.tags-container input {
+.tags-container span {
     width:50px;
     height: 30px;
     padding: 5px 5px;
     /* margin: 5px 20px; */
 }
-.tags-container input:hover{
+.tags-container span:hover{
     background-color: rgb(22, 15, 15);
     color: aliceblue;
 }

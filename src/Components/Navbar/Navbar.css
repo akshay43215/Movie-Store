@@ -36,5 +36,12 @@
     height: 30px;
     padding: 0 20px;
     border-radius: 12px;
+    letter-spacing: 3px;
+    color: rgb(104, 137, 137);
     /* margin-right: 100px; */
+}
+.search::placeholder {
+    color: rgb(104, 137, 137);
+    /* font-weight: 500; */
+    letter-spacing: 2px;
 }

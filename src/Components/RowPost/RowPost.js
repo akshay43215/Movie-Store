@@ -7,7 +7,7 @@ import "./RowPost.css";
 function RowPost({ title, isSmall, url, noWrap, inputVal }) {
   const [movies, setMovies] = useState([]);
   const [urlId, setUrlId] = useState(null);
-  console.log(noWrap, "sasasajs");
+  // console.log(noWrap);
   useEffect(() => {
     Axios.get(url)
       .then((response) => {
