@@ -10,7 +10,7 @@ import Tags from '../Tags/Tags';
 function App() {
   const [inputVal, setInputVal] = useState('')
   // console.log(inputVal);
-  const Find = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${inputVal}&page=1&include_adult=false`
+  const Find = `/search/movie?api_key=${APIKEY}&language=en-US&query=${inputVal}&page=1&include_adult=false`
   return (
     <div className="App">
       <Navbar inputVal={inputVal} setInputVal={setInputVal}/>
@@ -18,7 +18,7 @@ function App() {
       <Tags/>
       <RowPost title='Trendings' url={ORIGINALS} />
       
-      <RowPost title='Actions' isSmall url={Find} inputVal={inputVal}/>
+      <RowPost title='Actions' noWrap isSmall url={ACTIONS} inputVal={inputVal}/>
       {/* <RowPost title='Actions' isSmall url={ACTIONS} noWrap /> */}
     </div>
   );

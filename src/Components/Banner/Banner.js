@@ -12,7 +12,7 @@ const [urlId, setUrlId] = useState(null)
 
     useEffect(() => {
         
-        Axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=${APIKEY}&language=en-US`).then((response)=>{
+        Axios.get(`/trending/all/week?api_key=${APIKEY}&language=en-US`).then((response)=>{
             // console.log((response.data.results).length);
             const objLength = response.data.results.length
             // console.log(objLength);
