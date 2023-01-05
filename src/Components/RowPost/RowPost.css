@@ -1,6 +1,7 @@
 
 .row-container {
     margin-left: 20px;
+    margin-top: 10px;
     color: #fff;   
 }
 .first-part {
@@ -9,8 +10,19 @@
     align-items: center;
     justify-content: space-between;
 }
+.first-part .name-div {
+    /* background-color: rgb(35, 134, 79); */
+    margin: 0 12px;
+    height: 24px;
+    width: 200px;
+    overflow-x: hidden;
+}
+.name-div::-webkit-scrollbar{
+    display: none;
+}
 .row-posters {
     display: flex;
+    justify-content: space-around;
     padding: 20px;
     overflow-x: scroll;
     overflow-y:hidden;
@@ -27,7 +39,7 @@
 .movie-map {
     height: 250px;
     /* background-color: #fff; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 .poster {
     /* width: 100%; */

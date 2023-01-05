@@ -7,7 +7,7 @@ import "./RowPost.css";
 function RowPost({ title, isSmall, url, noWrap, inputVal }) {
   const [movies, setMovies] = useState([]);
   const [urlId, setUrlId] = useState(null);
-  // console.log(noWrap);
+  console.log(url);
   useEffect(() => {
     Axios.get(url)
       .then((response) => {
@@ -17,7 +17,7 @@ function RowPost({ title, isSmall, url, noWrap, inputVal }) {
       .catch((error) => {
         console.log(error, " in row post");
       });
-  }, []);
+  }, [url]);
 
   const opts = {
     height: "390",
@@ -62,14 +62,17 @@ function RowPost({ title, isSmall, url, noWrap, inputVal }) {
     <div className="row-container">
       <h2>{title}</h2>
       <div className="row-posters" style={noWrap ? { flexWrap: "wrap" } : {}}>
-        {movies.map(
-          (itm) => (
+        {movies.map((itm) => {
+            console.log(itm)
+            return(
             <div className="movie-map" key={itm.id}>
               <div className="first-part">
                 <span className={getColor(itm.vote_average)}>
                   {itm.vote_average}
                 </span>
-                <h3>{itm.name}</h3>
+                <div className="name-div">
+                <h3>{itm.title}{itm.name}</h3>
+                </div>
                 <button onClick={() => handleTrailer(itm.id)}>Watch</button>
               </div>
               <img
@@ -80,7 +83,8 @@ function RowPost({ title, isSmall, url, noWrap, inputVal }) {
               />
               <div className="second-part"></div>
             </div>
-          )
+            )
+            }
           // onClick={()=>playMovie(itm.id)}
         )}
       </div>

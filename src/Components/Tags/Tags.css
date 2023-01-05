@@ -1,13 +1,17 @@
 .tags-container {
-    /* background-color: #fff; */
-    height: 50px;
-    display: flex;
+    max-height: 120px;
+    /* padding: 10px 20px; */
+     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly; 
 }
 .tags-container span {
-    width:50px;
-    height: 30px;
+    min-width:100px;
+    height: 40px;
+    background-color: antiquewhite;
+    text-align: center;
+    margin: 10px;
     padding: 5px 5px;
     /* margin: 5px 20px; */
 }
