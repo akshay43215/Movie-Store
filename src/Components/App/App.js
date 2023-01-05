@@ -23,7 +23,7 @@ function App() {
     setRowId(itm.id)
     // setRowId(`/discover/movie?api_key=${APIKEY}&with_genres=${itm.id}`)
   }
-  console.log(rowId);
+  // console.log(rowId);
 
   return (
     <div className="App">
@@ -32,7 +32,7 @@ function App() {
       <Tags url={Genres} cbTagval={cbTagval}/>
       <RowPost title='Trending' url={ORIGINALS} />
       
-      <RowPost title={rowTitle} isSmall url={GenreID+rowId} noWrap />
+      <RowPost title={rowTitle} isSmall url={GenreID+rowId} noWrap inputVal={inputVal}/>
       {/* <RowPost title='Actions' isSmall url={ACTIONS} noWrap /> */}
     </div>
   );

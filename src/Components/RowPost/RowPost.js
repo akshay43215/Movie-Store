@@ -7,7 +7,7 @@ import "./RowPost.css";
 function RowPost({ title, isSmall, url, noWrap, inputVal }) {
   const [movies, setMovies] = useState([]);
   const [urlId, setUrlId] = useState(null);
-  console.log(url);
+  // console.log(url);
   useEffect(() => {
     Axios.get(url)
       .then((response) => {
@@ -18,7 +18,7 @@ function RowPost({ title, isSmall, url, noWrap, inputVal }) {
         console.log(error, " in row post");
       });
   }, [url]);
-
+console.log(inputVal);
   const opts = {
     height: "390",
     width: "100%",
@@ -62,8 +62,17 @@ function RowPost({ title, isSmall, url, noWrap, inputVal }) {
     <div className="row-container">
       <h2>{title}</h2>
       <div className="row-posters" style={noWrap ? { flexWrap: "wrap" } : {}}>
-        {movies.map((itm) => {
-            console.log(itm)
+        {
+        movies.filter((itm)=>{
+          if (!inputVal) {return true}
+          if (itm.title.includes(inputVal)) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+        .map((itm) => {
+            // console.log(itm)
             return(
             <div className="movie-map" key={itm.id}>
               <div className="first-part">
