@@ -1,0 +1,36 @@
+
+.reviewbox-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 400px;
+    width: 600px;
+    z-index: 2;
+    background-color: rgba(51, 51, 51, .02);
+    border-radius: 20px;
+    border: 2px solid green; 
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+}
+.reviewbox-container input {
+    height: 40px;
+    border-radius: 10px;
+    width: 70%;
+    font-weight: 600;
+    padding: 0 30px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+.reviewbox-container button {
+    width: 30%;
+    margin-right: 10px;
+    background-color: rgb(67, 74, 77);
+}
+.btn-div {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}

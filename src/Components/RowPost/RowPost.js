@@ -3,22 +3,25 @@ import { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import Axios from "../../Axios/Axios";
 import "./RowPost.css";
+import ReviewBox from "../ReviewBox/ReviewBox";
 
-function RowPost({ title, isSmall, url, noWrap, inputVal }) {
+function RowPost({ title, isSmall, url, noWrap, inputVal}) {
   const [movies, setMovies] = useState([]);
   const [urlId, setUrlId] = useState(null);
+  const [movieName, setMovieName] = useState('')
+  const [reviewBox, setReviewBox] = useState(false)
   // console.log(url);
   useEffect(() => {
     Axios.get(url)
       .then((response) => {
-        // console.log(response.data.results);
+        // console.log(response.data);
         setMovies(response.data.results);
       })
       .catch((error) => {
         console.log(error, " in row post");
       });
   }, [url]);
-console.log(inputVal);
+// console.log(inputVal);
   const opts = {
     height: "390",
     width: "100%",
@@ -46,17 +49,26 @@ console.log(inputVal);
   const handleTrailer = (id) => {
     console.log(id, "fn argument id");
 
-    Axios.get(`/movie/${id}/videos?api_key=${APIKEY}&language=en-US`).then(
-      (response) => {
-        console.log(response.data.results, "results");
+    Axios.get(`/movie/${id}/videos?api_key=${APIKEY}&language=en-US`)
+    .then((response) => {
+        // console.log(response.data.results, "results");
         if (response.data?.results?.length) {
           setUrlId(response.data.results[0].key);
         }
         return;
         // console.log(urlId,'urlid state');
       }
-    );
+     ).catch()
+     console.log('error on playing Video');
   };
+  const reviewMovie=(name)=> {
+    console.log(typeof name);
+    console.log( name);
+    setReviewBox(!reviewBox)
+    setMovieName(name)
+    // console.log(reviewBox);
+    // localStorage.setItem(name,'value')
+  }
 
   return (
     <div className="row-container">
@@ -64,7 +76,7 @@ console.log(inputVal);
       <div className="row-posters" style={noWrap ? { flexWrap: "wrap" } : {}}>
         {
         movies.filter((itm)=>{
-          if (!inputVal) {return true}
+          if (!inputVal) return true
           if (itm.title.includes(inputVal)) {
             return true;
           } else {
@@ -85,22 +97,24 @@ console.log(inputVal);
                 <button onClick={() => handleTrailer(itm.id)}>Watch</button>
               </div>
               <img
-                key={itm.id}
+                key={itm.id} onClick={()=>reviewMovie(itm.name)}
                 className={isSmall ? "small-poster" : "poster"}
                 src={`${IMAGEURL + itm.backdrop_path}`}
                 alt="row-post"
-              />
+                />
+                {/* {ReviewBox && <ReviewBox />} */}
               <div className="second-part"></div>
             </div>
             )
-            }
+          }
           // onClick={()=>playMovie(itm.id)}
-        )}
+          )}
       </div>
+          {reviewBox && <ReviewBox movieName={movieName} />}
 
       {/* <YouTube opts={opts} videoId="2g811Eo7K8U"/> */}
 
-      {urlId && <YouTube opts={opts} videoId={urlId} />}
+      {urlId && <YouTube opts={opts} videoId={urlId} reviewBox={reviewBox} setReviewBox={setReviewBox}/>}
     </div>
   );
 }

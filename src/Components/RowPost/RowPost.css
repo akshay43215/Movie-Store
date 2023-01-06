@@ -38,6 +38,7 @@
 }
 .movie-map {
     height: 250px;
+    width: 350px;
     /* background-color: #fff; */
     /* border: 2px solid black; */
 }
@@ -57,12 +58,12 @@
     background: rgb(144, 119, 119)
 }
 .poster:hover{
-    transition:transform 120ms ease-in-out;
-    transform: scale(1.06);
+    transition:transform 610ms ease-in-out;
+    transform: scale(.7);
 }
 .small-poster:hover{
     transition:transform 120ms ease-in-out;
-    transform: scale(1.06);
+    transform: scale(1.2);
 }
 
 span {
