@@ -28,16 +28,9 @@ import './Tags.css'
     <div className="tags-container">
       {
         tagsMovies.map((itm,k)=>{
-          // console.log(itm);
                return <span key={itm.id} onClick={()=>SpanClickFn(itm)}> {`${itm.name} - ${itm.id}` } </span>
           })
       }
-        {/* <input type="text" value='Comedy' disabled/>
-        <input type="text" value='action' disabled/>
-        <input type="text" value='drama' disabled/>
-        <input type="text" value='animation' disabled/>
-        <input type="text" value='adventure' disabled/>
-        <input type="text" value='fantasy' disabled/> */}
     </div>
   )
 }

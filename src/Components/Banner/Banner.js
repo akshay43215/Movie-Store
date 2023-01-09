@@ -13,7 +13,6 @@ const [urlId, setUrlId] = useState(null)
     useEffect(() => {
         
         Axios.get(`/trending/all/week?api_key=${APIKEY}&language=en-US`).then((response)=>{
-            // console.log((response.data.results).length);
             const objLength = response.data.results.length
             // console.log(objLength);
             const r = Math.random()*(objLength-0) + 0
@@ -37,9 +36,9 @@ const [urlId, setUrlId] = useState(null)
     const handleTrailer=(id)=> {
         console.log(id,'fn argument id');
     
-        Axios.get(`http://api.themoviedb.org/3/movie/${id}/videos?api_key=${APIKEY}&language=en-US`).then((response)=>{
+        Axios.get(`/movie/${id}/videos?api_key=${APIKEY}&language=en-US`).then((response)=>{
           
-        console.log(response.data.results,'results');
+        // console.log(response.data.results,'results');
           if (response.data?.results?.length) {
             setUrlId(response.data.results[0].key)
           }

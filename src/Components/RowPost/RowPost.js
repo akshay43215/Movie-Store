@@ -10,12 +10,14 @@ function RowPost({ title, isSmall, url, noWrap, inputVal}) {
   const [urlId, setUrlId] = useState(null);
   const [movieName, setMovieName] = useState('')
   const [reviewBox, setReviewBox] = useState(false)
-  // console.log(url);
+  // console.log(inputVal);
   useEffect(() => {
     Axios.get(url)
       .then((response) => {
         // console.log(response.data);
         setMovies(response.data.results);
+        // console.log(response.data.page);
+        // console.log(response.data.total_pages);
       })
       .catch((error) => {
         console.log(error, " in row post");
@@ -47,7 +49,7 @@ function RowPost({ title, isSmall, url, noWrap, inputVal}) {
   //   })
   // }
   const handleTrailer = (id) => {
-    console.log(id, "fn argument id");
+    // console.log(id, "fn argument id");
 
     Axios.get(`/movie/${id}/videos?api_key=${APIKEY}&language=en-US`)
     .then((response) => {
@@ -62,8 +64,8 @@ function RowPost({ title, isSmall, url, noWrap, inputVal}) {
      console.log('error on playing Video');
   };
   const reviewMovie=(name)=> {
-    console.log(typeof name);
-    console.log( name);
+    // console.log(typeof name);
+    // console.log( name);
     setReviewBox(!reviewBox)
     setMovieName(name)
     // console.log(reviewBox);
@@ -96,25 +98,25 @@ function RowPost({ title, isSmall, url, noWrap, inputVal}) {
                 </div>
                 <button onClick={() => handleTrailer(itm.id)}>Watch</button>
               </div>
+              <div className="second-part"></div>
               <img
-                key={itm.id} onClick={()=>reviewMovie(itm.name)}
+                key={itm.id} onClick={()=>reviewMovie(itm.name|| itm.title)}
                 className={isSmall ? "small-poster" : "poster"}
                 src={`${IMAGEURL + itm.backdrop_path}`}
-                alt="row-post"
+                alt="row-post-image"
                 />
                 {/* {ReviewBox && <ReviewBox />} */}
-              <div className="second-part"></div>
             </div>
             )
           }
           // onClick={()=>playMovie(itm.id)}
           )}
       </div>
-          {reviewBox && <ReviewBox movieName={movieName} />}
+          {reviewBox && <ReviewBox movieName={movieName} reviewBox={reviewBox} setReviewBox={setReviewBox}/>}
 
       {/* <YouTube opts={opts} videoId="2g811Eo7K8U"/> */}
 
-      {urlId && <YouTube opts={opts} videoId={urlId} reviewBox={reviewBox} setReviewBox={setReviewBox}/>}
+      {urlId && <YouTube opts={opts} videoId={urlId} />}
     </div>
   );
 }

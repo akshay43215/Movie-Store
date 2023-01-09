@@ -39,16 +39,17 @@
 .movie-map {
     height: 250px;
     width: 350px;
+    /* background-size:contain ; */
     /* background-color: #fff; */
     /* border: 2px solid black; */
 }
+
 .poster {
     /* width: 100%; */
     /* overflow: hidden; */
     cursor: pointer;
     height: 250px;
-    margin-right: 10px;
-    background: red;
+    /* margin-right: 20px; */
 }
 .small-poster {
     /* width: 100%; */

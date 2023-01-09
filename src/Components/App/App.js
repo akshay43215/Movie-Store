@@ -10,10 +10,9 @@ import Tags from '../Tags/Tags';
 function App() {
   const [inputVal, setInputVal] = useState('')
   const [rowTitle, setRowTitle] = useState('All')
-  // const [reviewBox, setReviewBox] = useState(false)
   const [rowId, setRowId] = useState('')
+  // const [reviewBox, setReviewBox] = useState(false)
   // console.log(inputVal);
-  // const Find = "https://api.themoviedb.org/3/search/movie?api_key=4febf5a8cbe38fa1518dc7c3e44fce8e&language=en-US&query=wednesday&page=1&include_adult=false"
   // console.log(Find);
 
   const cbTagval=(itm)=> {
@@ -32,8 +31,7 @@ function App() {
       <Banner/>
       <Tags url={Genres} cbTagval={cbTagval}/>
       <RowPost title='Trending' url={ORIGINALS} />
-      
-      <RowPost title={rowTitle} isSmall url={GenreID+rowId} noWrap inputVal={inputVal}/>
+      <RowPost title={rowTitle} url={GenreID+rowId} inputVal={inputVal} isSmall noWrap/>
       {/* <RowPost title='Actions' isSmall url={ACTIONS} noWrap /> */}
     </div>
   );
