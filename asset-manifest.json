@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Movie-Store/static/css/main.4fb2dea2.css",
+    "main.js": "/Movie-Store/static/js/main.05a55a98.js",
+    "index.html": "/Movie-Store/index.html",
+    "main.4fb2dea2.css.map": "/Movie-Store/static/css/main.4fb2dea2.css.map",
+    "main.05a55a98.js.map": "/Movie-Store/static/js/main.05a55a98.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4fb2dea2.css",
+    "static/js/main.05a55a98.js"
+  ]
+}
