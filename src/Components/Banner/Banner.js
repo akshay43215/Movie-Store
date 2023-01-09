@@ -14,7 +14,6 @@ const [urlId, setUrlId] = useState(null)
         
         Axios.get(`/trending/all/week?api_key=${APIKEY}&language=en-US`).then((response)=>{
             const objLength = response.data.results.length
-            // console.log(objLength);
             const r = Math.random()*(objLength-0) + 0
             const randomIdx= Math.floor(r)
 
@@ -38,17 +37,13 @@ const [urlId, setUrlId] = useState(null)
     
         Axios.get(`/movie/${id}/videos?api_key=${APIKEY}&language=en-US`).then((response)=>{
           
-        // console.log(response.data.results,'results');
           if (response.data?.results?.length) {
             setUrlId(response.data.results[0].key)
           }
           return;
-          // console.log(urlId,'urlid state');
         }) 
          }
 
-// console.log(movie);
-// console.log(IMAGEURL);
   return (
     <div style={{ backgroundImage:`url(${movie?IMAGEURL+movie.backdrop_path:''})` }} className="banner-container">
         <div className="content">

@@ -5,7 +5,6 @@ import './Tags.css'
 
  function Tags({url,cbTagval}) {
   const [tagsMovies,setTagsMovies] = useState([])
-  // const {url} = props;
 
   useEffect(() => {
     Axios.get(url)
@@ -17,13 +16,12 @@ import './Tags.css'
         console.log(error, " in row post");
       });
   }, []);
-  // console.log(tagsMovies);
+
   const SpanClickFn=(Id)=>{
     // window.alert(Id);
      cbTagval(Id)
-    // console.log('try cb fn',Id);
   }
-// console.log(use);
+
   return (
     <div className="tags-container">
       {

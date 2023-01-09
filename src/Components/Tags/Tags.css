@@ -1,6 +1,5 @@
 .tags-container {
     max-height: 120px;
-    /* padding: 10px 20px; */
      display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -14,7 +13,6 @@
     text-align: center;
     margin: 10px;
     padding: 5px 5px;
-    /* margin: 5px 20px; */
 }
 .tags-container span:hover{
     background-color: rgb(22, 15, 15);

@@ -1,4 +1,3 @@
-// import 'ReviewBox.css'
 
 import { useState } from "react";
 import "./ReviewBox.css";
@@ -8,20 +7,25 @@ function ReviewBox({ movieName, reviewBox, setReviewBox }) {
   const [items, setItems] = useState([]);
 
   const submitReview = (event) => {
-    console.log("fn form submit");
+    console.log("form data has submitted");
     event.preventDefault();
-    console.log(movieName);
+    // console.log(movieName);
     setItems([...items, { review: txtContent }]);
-    // localStorage.setItem(movieName,JSON.stringify(items))
     settxtContent("");
   };
 
   const searchLocal = () => {
-    // console.log(localStorage.getItem(`movieName`));
-    const searchItm = JSON.parse(localStorage.getItem(`"${movieName}"`));
-    console.log(searchItm);
-    setItems(searchItm);
+    try {
+      const searchItm = JSON.parse(localStorage.getItem(`"${movieName}"`));
+      if (searchItm){
+        setItems(searchItm);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
+
   const saveLocal = () => {
     localStorage.setItem(JSON.stringify(movieName), JSON.stringify(items));
     setReviewBox(!reviewBox);
@@ -30,7 +34,7 @@ function ReviewBox({ movieName, reviewBox, setReviewBox }) {
   return (
     <div className="reviewbox-container">
       <form action="" onSubmit={submitReview}>
-        <h3>{movieName}</h3>
+        <h4>{movieName}</h4>
         <input
           type="text"
           onChange={(e) => settxtContent(e.target.value)}
@@ -38,12 +42,11 @@ function ReviewBox({ movieName, reviewBox, setReviewBox }) {
         />
       </form>
       <ul>
-        {items.map((itm, k) => {
-          const id = itm.id;
-          // console.log(check);
 
+        {items.map((itm, k) => {
           return <li key={k}> {itm.review} </li>;
         })}
+
       </ul>
       <div className="btn-div">
         <button onClick={searchLocal}>Show</button>

@@ -11,7 +11,7 @@
     justify-content: space-between;
 }
 .first-part .name-div {
-    /* background-color: rgb(35, 134, 79); */
+    
     margin: 0 12px;
     height: 24px;
     width: 200px;
@@ -26,7 +26,6 @@
     padding: 20px;
     overflow-x: scroll;
     overflow-y:hidden;
-    /* flex-wrap: wrap; */
 }
 .row-posters::-webkit-scrollbar{
     display: none;
@@ -34,25 +33,17 @@
 .movie-map {
     height:fit-content;
     text-align: center;
-    /* background-color: yellow; */
 }
 .movie-map {
     height: 250px;
     width: 350px;
-    /* background-size:contain ; */
-    /* background-color: #fff; */
-    /* border: 2px solid black; */
 }
 
 .poster {
-    /* width: 100%; */
-    /* overflow: hidden; */
     cursor: pointer;
     height: 250px;
-    /* margin-right: 20px; */
 }
 .small-poster {
-    /* width: 100%; */
     cursor: pointer;
     height: 150px;
     margin-right: 10px;
@@ -71,10 +62,8 @@ span {
     padding: 2px 5px;
     border-radius: 8px;
     z-index: 1;
-    /* margin-bottom: 10px; */
     position: relative;
     left: 10px;
-    /* top: 10px; */
 }
 span.green {
     background-color: rgb(34, 208, 34);
